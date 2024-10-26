@@ -312,7 +312,7 @@
     {
       mode = "n";
       key = "<leader>bl";
-      action = "<cmd>ls<CR><cmd>b<space>";
+      action = "<cmd>ls<CR>:b<space>";
       options = {
         desc = "List Buffers";
       };
