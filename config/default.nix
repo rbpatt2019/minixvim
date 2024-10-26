@@ -7,8 +7,11 @@ _: {
     ./auto_cmds.nix
     ./colourscheme.nix
 
-    # User Experience plugins
+    # User Experience - make life easier
     ./plugins/ux/whichkey.nix
+
+    # User Interface - beautification
+    ./plugins/ui/dressing.nix
 
     ./bufferline.nix
   ];
