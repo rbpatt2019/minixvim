@@ -6,6 +6,10 @@ to `NixVim`_. Now, the entire thing is in ``nix``, so everything plays nicely wi
 everything else. Also, by making it an independent flake, I can install it with
 ``HomeManager`` and access it on any system that runs ``Nix``.
 
+.. note::
+
+   Reminder to self: check catpuccin and which-key everytime you add a plugin!
+
 Development
 ===========
 
@@ -39,3 +43,4 @@ with:
 .. code:: bash
 
    nix run .# -- <file>
+
