@@ -15,22 +15,6 @@
         desc = "Escape and Clear hlsearch";
       };
     }
-    # undo breakpoints
-    {
-      mode = "i";
-      key = ";";
-      action = ";<c-g>u";
-    }
-    {
-      mode = "i";
-      key = ".";
-      action = ".<c-g>u";
-    }
-    {
-      mode = "i";
-      key = ";";
-      action = ";<c-g>u";
-    }
     # better up and down
     {
       mode = [
@@ -287,24 +271,8 @@
     # Buffers
     {
       mode = "n";
-      key = "<leader>bp";
-      action = "<cmd>bprevious<cr>";
-      options = {
-        desc = "Prev. Buffer";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>bn";
-      action = "<cmd>bnext<cr>";
-      options = {
-        desc = "Next Buffer";
-      };
-    }
-    {
-      mode = "n";
       key = "<leader>bd";
-      action = "<cmd>bd<cr>";
+      action = "<cmd>lua MiniBufremove.delete()<cr>";
       options = {
         desc = "Del. Buffer";
       };

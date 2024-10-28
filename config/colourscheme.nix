@@ -17,7 +17,10 @@
         no_underline = false;
         transparent_background = true;
         integrations = {
-          which_key = true;
+          mini = {
+            enabled = true;
+            indentscope_color = "rosewater";
+          };
         };
       };
     };
