@@ -21,6 +21,7 @@
             enabled = true;
             indentscope_color = "rosewater";
           };
+          gitsigns = true;
         };
       };
     };

@@ -279,6 +279,14 @@
     }
     {
       mode = "n";
+      key = "<leader>bx";
+      action = "<cmd>close<cr>";
+      options = {
+        desc = "Close Split";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>bl";
       action = "<cmd>ls<CR>:b<space>";
       options = {
@@ -286,6 +294,14 @@
       };
     }
     # Files
+    {
+      mode = "n";
+      key = "<leader>e";
+      action = "<cmd>lua MiniFiles.open()<CR>";
+      options = {
+        desc = "File Browser";
+      };
+    }
     {
       mode = [
         "n"

@@ -7,7 +7,12 @@
       bracketed = { };
       bufremove = { };
       clue = {
-        window.delay = 300;
+        window = {
+          delay = 200;
+          config = {
+            width = "auto";
+          };
+        };
         triggers = [
           {
             mode = "n";
@@ -86,7 +91,7 @@
       files = { };
       git = { };
       icons = { };
-      starter = { };
+      # starter = { };  File launched with starter don't use clue correctly?
       statusline = { };
       tabline = { };
     };
