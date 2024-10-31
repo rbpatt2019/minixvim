@@ -64,17 +64,6 @@
         silent = true;
       };
     }
-    # better indenting
-    {
-      mode = "v";
-      key = "<";
-      action = "<gv";
-    }
-    {
-      mode = "v";
-      key = ">";
-      action = ">gv";
-    }
     # better windows
     {
       mode = "n";
@@ -164,55 +153,6 @@
       };
     }
 
-    # Better move lines
-    {
-      mode = "n";
-      key = "<A-j>";
-      action = "<cmd>m .+1<cr>==";
-      options = {
-        desc = "Move Down";
-      };
-    }
-    {
-      mode = "n";
-      key = "<A-k>";
-      action = "<cmd>m .-2<cr>==";
-      options = {
-        desc = "Move Up";
-      };
-    }
-    {
-      mode = "i";
-      key = "<A-j>";
-      action = "<esc><cmd>m .+1<cr>==gi";
-      options = {
-        desc = "Move Down";
-      };
-    }
-    {
-      mode = "i";
-      key = "<A-k>";
-      action = "<esc><cmd>m .-2<cr>==gi";
-      options = {
-        desc = "Move Up";
-      };
-    }
-    {
-      mode = "v";
-      key = "<A-j>";
-      action = ":m '>+1<cr>gv=gv";
-      options = {
-        desc = "Move Down";
-      };
-    }
-    {
-      mode = "v";
-      key = "<A-k>";
-      action = ":m '<-2<cr>gv=gv";
-      options = {
-        desc = "Move Up";
-      };
-    }
     # Better n/N
     {
       mode = "n";
@@ -303,22 +243,9 @@
       };
     }
     {
-      mode = [
-        "n"
-        "i"
-        "v"
-        "x"
-      ];
-      key = "<C-s>";
-      action = "<cmd>w<cr><esc>";
-      options = {
-        desc = "Save File";
-      };
-    }
-    {
       mode = "n";
       key = "<leader>w";
-      action = "<cmd>w<cr><esc>";
+      action = "<cmd>lua MiniTrailspace.trim()<cr><cmd>w<cr><esc>";
       options = {
         desc = "Save File";
       };
