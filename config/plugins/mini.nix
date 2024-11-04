@@ -82,7 +82,7 @@
       };
       jump2d = { };
       move = { };
-      notify = { };
+      # notify = { };
       pairs = { };
       pick = {
         options = {
@@ -103,7 +103,7 @@
     };
 
     # Configuring the clues for clue requires lua code.
-    luaConfig.pre = ''
+    luaConfig.post = ''
       local miniclue = require('mini.clue')
       miniclue.setup({
         clues = {

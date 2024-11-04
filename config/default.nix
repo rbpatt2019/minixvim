@@ -10,6 +10,9 @@ _: {
     ./plugins/mini.nix
 
     # Code/LSP integration
+    ./plugins/code/lsp.nix
+    ./plugins/code/fidget.nix
+    ./plugins/code/schemastore.nix
     ./plugins/code/treesitter.nix
 
     # UX improvements
