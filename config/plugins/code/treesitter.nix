@@ -4,7 +4,7 @@
     enable = true;
     folding = true;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
-    indent = true;
+    settings.indent.enable = true;
     nixvimInjections = true;
   };
 

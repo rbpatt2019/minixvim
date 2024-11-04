@@ -15,6 +15,7 @@ _: {
     # UX improvements
     ./plugins/ux/toggleterm.nix
     ./plugins/ux/undotree.nix
+    ./plugins/ux/cutlass.nix
 
     # Git integration
     ./plugins/git/lazygit.nix
