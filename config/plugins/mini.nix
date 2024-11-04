@@ -81,6 +81,7 @@
         };
       };
       jump2d = { };
+      map = { };
       move = { };
       # notify = { };
       pairs = { };
@@ -102,7 +103,7 @@
       trailspace = { };
     };
 
-    # Configuring the clues for clue requires lua code.
+    # These could probably be done with __raw, but I think they are more readable this way.
     luaConfig.post = ''
       local miniclue = require('mini.clue')
       miniclue.setup({
@@ -114,8 +115,15 @@
           miniclue.gen_clues.registers(),
         },
       })
+
       require("mini.indentscope").gen_animation.none()
-      vim.notify = require('mini.notify').make_notify()
+
+      local map = require('mini.map')
+      local diagnostic_integration = map.gen_integration.diagnostic({
+        error = 'DiagnosticFloatingError',
+        warn  = 'DiagnosticFloatingWarn'
+      })
+      map.setup({ integrations = { diagnostic_integration } })
     '';
   };
 

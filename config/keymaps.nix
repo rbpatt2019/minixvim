@@ -292,5 +292,15 @@
       key = "<C-k>";
       action = "<cmd>wincmd k<cr>";
     }
+    {
+      mode = "n";
+      key = "<leader>mm";
+      action = "<cmd>lua MiniMap.toggle()<cr>";
+    }
+    {
+      mode = "n";
+      key = "<leader>mt";
+      action = "<cmd>lua MiniMap.toggle_focus()<cr>";
+    }
   ];
 }
