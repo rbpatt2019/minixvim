@@ -10,6 +10,15 @@ everything else. Also, by making it an independent flake, I can install it with
 
    Reminder to self: check catpuccin and which-key everytime you add a plugin!
 
+Known Issues
+============
+
+#. Mini.Map doesn't respect colourscheme
+#. Files launched through Mini.Pick, Mini.Files, or Mini.Starter don't use Mini.Clue
+   
+I'm pretty sure this is related to NixVim, as I can't replicate these in a plain Lua
+setup.
+
 Development
 ===========
 
