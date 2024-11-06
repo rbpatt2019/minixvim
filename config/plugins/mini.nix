@@ -77,7 +77,7 @@
       };
       jump = {
         delay = {
-          idle_stop = 5000;
+          idle_stop = 2000;
         };
       };
       jump2d = { };
@@ -88,9 +88,6 @@
       pick = {
         options = {
           content_from_bottom = true;
-        };
-        window = {
-          config = { };
         };
       };
       starter = { }; # File launched with starter don't use clue correctly?
@@ -111,8 +108,6 @@
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.g(),
           miniclue.gen_clues.z(),
-          miniclue.gen_clues.marks(),
-          miniclue.gen_clues.registers(),
         },
       })
 
