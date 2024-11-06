@@ -194,10 +194,34 @@
     }
     {
       mode = "n";
-      key = "<leader>fr";
-      action = "<cmd>Pick registers<CR>";
+      key = "<localleader>fd";
+      action = "<cmd>Pick diagnostic<CR>";
       options = {
-        desc = "Find registers";
+        desc = "Find diagnostic";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>fs";
+      action = "<cmd>Pick lsp scope='document_symbol'<CR>";
+      options = {
+        desc = "Find symbol (doc)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>fS";
+      action = "<cmd>Pick lsp scope='workspace_symbol'<CR>";
+      options = {
+        desc = "Find symbol (space)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>fr";
+      action = "<cmd>Pick lsp scope='references'<CR>";
+      options = {
+        desc = "Find references";
       };
     }
   ];

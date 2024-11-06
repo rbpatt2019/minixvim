@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   plugins = {
     nix.enable = true;
@@ -53,13 +52,10 @@
       keymaps = {
         silent = true;
         lspBuf = {
+          # references covered by mini.pick
           gd = {
             action = "definition";
             desc = "Goto Definition";
-          };
-          gr = {
-            action = "references";
-            desc = "Goto References";
           };
           gD = {
             action = "declaration";
@@ -77,10 +73,7 @@
             action = "hover";
             desc = "Hover";
           };
-          "<localleader>w" = {
-            action = "workspace_symbol";
-            desc = "Workspace Symbol";
-          };
+          # symbols covered by mini.pick
           "<localleader>r" = {
             action = "rename";
             desc = "Rename";
