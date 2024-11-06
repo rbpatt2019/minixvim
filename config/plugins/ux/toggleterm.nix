@@ -2,6 +2,10 @@
   plugins.toggleterm = {
     enable = true;
     settings = {
+      direction = "vertical";
+      float_opts = {
+        border = "curved";
+      };
       size = ''
         function(term)
           if term.direction == "horizontal" then
@@ -52,6 +56,15 @@
       action = "<cmd>ToggleTermSendVisualLines trim_spaces=false<cr>";
       options = {
         desc = "Send line to Term.";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>t";
+      action = "<cmd>TermExec cmd='ipython --no-autoindent'<cr>";
+      options = {
+        desc = "Launch iPython";
         remap = true;
       };
     }
