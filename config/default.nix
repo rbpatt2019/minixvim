@@ -12,11 +12,11 @@ _: {
     # Code/LSP integration
     ./plugins/code/lsp.nix
     ./plugins/code/coq.nix
-    ./plugins/code/fidget.nix
     ./plugins/code/schemastore.nix
     ./plugins/code/treesitter.nix
 
     # UX improvements
+    ./plugins/ux/noice.nix
     ./plugins/ux/toggleterm.nix
     ./plugins/ux/undotree.nix
     ./plugins/ux/cutlass.nix
