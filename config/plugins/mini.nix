@@ -54,16 +54,13 @@
             mode = "n";
             keys = "'";
           }
-          {
-            mode = "n";
-            keys = "\"";
-          }
         ];
       };
       comment = {
         options.ignore_blank_line = true;
       };
       cursorword = { };
+      diff = { };
       extra = { };
       files = { };
       fuzzy = { };
@@ -217,6 +214,14 @@
       action = "<cmd>Pick lsp scope='references'<CR>";
       options = {
         desc = "Find references";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>gd";
+      action = "<cmd>lua MiniDiff.toggle_overlay()<CR>";
+      options = {
+        desc = "Diff";
       };
     }
   ];

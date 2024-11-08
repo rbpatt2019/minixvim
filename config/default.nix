@@ -24,6 +24,5 @@ _: {
 
     # Git integration
     ./plugins/git/lazygit.nix
-    ./plugins/git/gitsigns.nix
   ];
 }
