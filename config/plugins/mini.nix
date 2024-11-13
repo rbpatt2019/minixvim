@@ -78,9 +78,7 @@
         };
       };
       jump2d = { };
-      map = { };
       move = { };
-      # notify = { };
       pairs = { };
       pick = {
         options = {
@@ -103,19 +101,11 @@
       miniclue.setup({
         clues = {
           miniclue.gen_clues.windows(),
-          miniclue.gen_clues.g(),
           miniclue.gen_clues.z(),
         },
       })
 
       require("mini.indentscope").gen_animation.none()
-
-      local map = require('mini.map')
-      local diagnostic_integration = map.gen_integration.diagnostic({
-        error = 'DiagnosticFloatingError',
-        warn  = 'DiagnosticFloatingWarn'
-      })
-      map.setup({ integrations = { diagnostic_integration } })
     '';
   };
 

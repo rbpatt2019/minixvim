@@ -87,4 +87,14 @@
       };
     };
   };
+  keymaps = [
+    {
+      mode = [ "n" ];
+      key = "<localleader>d";
+      action = "<cmd>lua require('lsp_lines').toggle()<cr>";
+      options = {
+        desc = "Toggle diagnostics";
+      };
+    }
+  ];
 }
