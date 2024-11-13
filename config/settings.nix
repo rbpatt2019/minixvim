@@ -36,6 +36,8 @@
       tabstop = 2;
       termguicolors = true;
       timeoutlen = 300;
+      undodir = ".nvim-undodir";
+      undofile = true;
     };
   };
 }
