@@ -2,9 +2,12 @@
 {
   plugins.treesitter = {
     enable = true;
-    folding = true;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
-    settings.indent.enable = true;
+    settings = {
+      indent.enable = true;
+      highlight.enable = true;
+      folding.enable = true;
+    };
     nixvimInjections = true;
   };
 

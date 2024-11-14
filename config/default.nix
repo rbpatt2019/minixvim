@@ -11,6 +11,7 @@ _: {
 
     # Code/LSP integration
     ./plugins/code/lsp.nix
+    ./plugins/code/conform.nix
     ./plugins/code/cmp.nix
     ./plugins/code/luasnip.nix
     ./plugins/code/schemastore.nix

@@ -77,7 +77,10 @@
           idle_stop = 2000;
         };
       };
-      jump2d = { };
+      jump2d = {
+        mappings.start_jumping = "<leader><leader>";
+        allowed_windows.not_current = false;
+      };
       move = { };
       pairs = { };
       pick = {
@@ -92,7 +95,6 @@
         search_method = "cover";
       };
       tabline = { };
-      trailspace = { };
     };
 
     # These could probably be done with __raw, but I think they are more readable this way.

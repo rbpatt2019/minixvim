@@ -21,7 +21,7 @@
         view_error = "notify";
         view_history = "mini";
         view_search = "mini";
-        view_warn = "mini";
+        view_warn = "notify";
       };
       notify = {
         enabled = true;

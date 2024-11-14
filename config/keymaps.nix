@@ -237,7 +237,7 @@
     {
       mode = "n";
       key = "<leader>w";
-      action = "<cmd>lua MiniTrailspace.trim()<cr><cmd>w<cr><esc>";
+      action = "<cmd>w<cr>";
       options = {
         desc = "Save File";
       };
