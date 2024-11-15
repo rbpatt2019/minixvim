@@ -1,55 +1,63 @@
-rbpatt2019's nixvim setup
-#########################
+minixvim
+########
 
-I was trying to port my LazyVim configuration. That was a pain, so instead I committed
-to `NixVim`_. Now, the entire thing is in ``nix``, so everything plays nicely with
-everything else. Also, by making it an independent flake, I can install it with
-``HomeManager`` and access it on any system that runs ``Nix``.
+A (nearly) fully ``mini``-aturised vestion of `nixvim`_.
 
-.. note::
+Design
+======
 
-   Reminder to self: check catpuccin and which-key everytime you add a plugin!
+The aim here was to create a `nvim`_ distribution that used a family of well configured
+plugins to produce a setup requiring minimatl configuration. To that end, I have set-up
+`mini.nvim`_ with `nixvim`_. Nearly everything is direct through ``mini.nivm``, which
+has very sane defaults and requires very little in the way of configuration. If a
+feature was not available through mini, an alternative was found. In a few select
+cases, I chose not to use the equivalent ``mini.nvim`` plugin. These are documented
+below:
+
+#. `noice`_ is used for notifications as it also beatifies the command prompts and
+   allows for customisation of notifications (ie errors using notify, info using mini).
+#. `cmp`_ is used completions, as mini's does not yet support snippets. I will likely
+   switch once this is in.
 
 Known Issues
 ============
 
-#. Mini.Map doesn't respect colourscheme
 #. Files launched through Mini.Pick, Mini.Files, or Mini.Starter don't use Mini.Clue
+#. Snippets not picked up for cmp.
+#. Color is rubbish on python files
    
 I'm pretty sure this is related to NixVim, as I can't replicate these in a plain Lua
 setup.
 
-Development
-===========
+Installation
+============
 
-This takes advantage of the flake development environments to use pre-commit and checks.
-The included ``.envrc`` will activate an environment that installs the pre-commit checks
-when you enter the directory - presuming you use ``direnv``. If you don't, you may
-install these manually with:
+To use this flake, add it as an input:
 
-.. code:: bash
+.. code::
 
-   nix develop
+   {
+     inputs = {
+       nixvim.url = "github:rbpatt2019/minixvim"
+     };
+   }
 
-Formatting may be applied with:
+Then, install the package. For `home-manager`_, this would be:
 
-.. code:: bash
+.. code::
 
-   nix fmt
+   home-manager.users.<user>.home.packages = [
+     inputs.nixvim.packages.x86_64-linux.default
+   ];
 
-A full check that the flake is correct can be run with:
+Contributing
+============
 
-.. code:: bash
+Please see our guide on :ref:`contributing`.
 
-   nix flake check .
-
-Testing Changes
-===============
-
-Another major advantage of this being a flake is that we can directly test changes
-with:
-
-.. code:: bash
-
-   nix run .# -- <file>
-
+.. _nvim: https://neovim.io/
+.. _mini.nvim: https://github.com/echasnovski/mini.nvim
+.. _nixvim: https://github.com/nix-community/nixvim?tab=readme-ov-file
+.. _noice: https://github.com/folke/noice.nvim
+.. _cmp: https://github.com/hrsh7th/nvim-cmp
+.. _home-manager: https://github.com/nix-community/home-manager
