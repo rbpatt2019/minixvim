@@ -1,36 +1,44 @@
-minixvim
-########
+##########
+ minixvim
+##########
 
-A (nearly) fully ``mini``-aturised vestion of `nixvim`_.
+A (nearly) fully ``mini``-aturised vestion of nixvim_.
 
-Design
-======
+********
+ Design
+********
 
-The aim here was to create a `nvim`_ distribution that used a family of well configured
-plugins to produce a setup requiring minimatl configuration. To that end, I have set-up
-`mini.nvim`_ with `nixvim`_. Nearly everything is direct through ``mini.nivm``, which
-has very sane defaults and requires very little in the way of configuration. If a
-feature was not available through mini, an alternative was found. In a few select
-cases, I chose not to use the equivalent ``mini.nvim`` plugin. These are documented
-below:
+The aim here was to create a nvim_ distribution that used a family of
+well configured plugins to produce a setup requiring minimatl
+configuration. To that end, I have set-up mini.nvim_ with nixvim_.
+Nearly everything is direct through ``mini.nivm``, which has very sane
+defaults and requires very little in the way of configuration. If a
+feature was not available through mini, an alternative was found. In a
+few select cases, I chose not to use the equivalent ``mini.nvim``
+plugin. These are documented below:
 
-#. `noice`_ is used for notifications as it also beatifies the command prompts and
-   allows for customisation of notifications (ie errors using notify, info using mini).
-#. `cmp`_ is used completions, as mini's does not yet support snippets. I will likely
-   switch once this is in.
+#. noice_ is used for notifications as it also beatifies the command
+   prompts and allows for customisation of notifications (ie errors
+   using notify, info using mini).
 
-Known Issues
-============
+#. cmp_ is used completions, as mini's does not yet support snippets. I
+   will likely switch once this is in.
 
-#. Files launched through Mini.Pick, Mini.Files, or Mini.Starter don't use Mini.Clue
+**************
+ Known Issues
+**************
+
+#. Files launched through Mini.Pick, Mini.Files, or Mini.Starter don't
+   use Mini.Clue
 #. Snippets not picked up for cmp.
 #. Color is rubbish on python files
-   
-I'm pretty sure this is related to NixVim, as I can't replicate these in a plain Lua
-setup.
 
-Installation
-============
+I'm pretty sure this is related to NixVim, as I can't replicate these in
+a plain Lua setup.
+
+**************
+ Installation
+**************
 
 To use this flake, add it as an input:
 
@@ -42,7 +50,7 @@ To use this flake, add it as an input:
      };
    }
 
-Then, install the package. For `home-manager`_, this would be:
+Then, install the package. For home-manager_, this would be:
 
 .. code::
 
@@ -50,14 +58,20 @@ Then, install the package. For `home-manager`_, this would be:
      inputs.nixvim.packages.x86_64-linux.default
    ];
 
-Contributing
-============
+**************
+ Contributing
+**************
 
 Please see our guide on :ref:`contributing`.
 
-.. _nvim: https://neovim.io/
-.. _mini.nvim: https://github.com/echasnovski/mini.nvim
-.. _nixvim: https://github.com/nix-community/nixvim?tab=readme-ov-file
-.. _noice: https://github.com/folke/noice.nvim
 .. _cmp: https://github.com/hrsh7th/nvim-cmp
+
 .. _home-manager: https://github.com/nix-community/home-manager
+
+.. _mini.nvim: https://github.com/echasnovski/mini.nvim
+
+.. _nixvim: https://github.com/nix-community/nixvim?tab=readme-ov-file
+
+.. _noice: https://github.com/folke/noice.nvim
+
+.. _nvim: https://neovim.io/
