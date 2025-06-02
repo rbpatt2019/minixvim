@@ -70,6 +70,7 @@
                     pkgs.nixfmt-pkgs
                     pkgs.deadnix
                     pkgs.statix
+                    pkgs.rstfmt
                     pkgs.yamlfmt
                   ];
                 };
@@ -80,6 +81,7 @@
                 nixfmt.enable = true;
                 deadnix.enable = true;
                 statix.enable = true;
+                rstfmt.enable = true;
                 yamlfmt.enable = true;
               };
             };
