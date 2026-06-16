@@ -1,8 +1,4 @@
-{
-
-  globals.mapleader = " ";
-  globals.maplocalleader = ";";
-
+_: {
   keymaps = [
     # Better escape
     {

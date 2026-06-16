@@ -1,31 +1,6 @@
-{ lib, pkgs, ... }:
-let
-  pythonPackages = pkgs.python312Packages;
-  doc-str-fmt =
-    let
-      pname = "docstrfmt";
-      version = "1.9.0";
-    in
-    pythonPackages.buildPythonPackage {
-      inherit pname version;
-      src = pkgs.fetchPypi {
-        inherit pname version;
-        sha256 = "sha256-AxFJSFiGAjlvN9p71U4fy9Xn7Yv1NVdqA3cMybofWOY=";
-      };
-      doCheck = false;
-      propagatedBuildInputs = [
-        pythonPackages.black
-        pythonPackages.click
-        pythonPackages.docutils
-        pythonPackages.libcst
-        pythonPackages.platformdirs
-        pythonPackages.sphinx
-        pythonPackages.tabulate
-        pythonPackages.toml
-      ];
-    };
-in
+{ pkgs, ... }:
 {
+  extraPackages = with pkgs; [ shfmt ];
   plugins.conform-nvim = {
     enable = true;
     settings = {
@@ -37,50 +12,60 @@ in
       };
       formatters_by_ft = {
         bash = [
-          "shellcheck"
-          "shellharden"
-          "shfmt"
+          [
+            "shellcheck"
+            "shellharden"
+            "shfmt"
+          ]
         ];
         json = [ "jq" ];
+        lua = [ "stylua" ];
+        markdown = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
         nix = [ "nixfmt" ];
         python = [
-          "ruff_fix"
-          "ruff_format"
-          "ruff_organize_imports"
-          "docstrfmt"
+          [
+            "ruff_fix"
+            "ruff_format"
+            "ruff_organize_imports"
+          ]
         ];
-        rst = [ "docstrfmt" ];
+        rst = [ "rstfmt" ];
+        terraform = [ "terraform_fmt" ];
         toml = [ "taplo" ];
-        yaml = [ "yamlfix" ];
-        "_" = [
-          "squeeze_blanks"
-          "trim_whitespace"
-          "trim_newlines"
-        ];
+        yaml = [ "yq" ];
+        # zsh
+        # sh
+        "*" = [ "codespell" ];
+        "_" = [ "treefmt" ];
       };
-      formatters = {
-        shellcheck = {
-          command = lib.getExe pkgs.shellcheck;
-        };
-        shellharden = {
-          command = lib.getExe pkgs.shellharden;
-        };
-        shfmt = {
-          command = lib.getExe pkgs.shfmt;
-        };
-        nixfmt = {
-          command = lib.getExe pkgs.nixfmt-rfc-style;
-        };
-        taplo = {
-          command = lib.getExe pkgs.taplo;
-        };
-        yamlfix = {
-          command = lib.getExe pkgs.yamlfix;
-        };
-        docstrfmt = {
-          command = lib.getExe doc-str-fmt;
-        };
-      };
+      #formatters = {
+      #shellcheck = {
+      #command = lib.getExe pkgs.shellcheck;
+      #};
+      #shellharden = {
+      #command = lib.getExe pkgs.shellharden;
+      #};
+      #shfmt = {
+      #command = lib.getExe pkgs.shfmt;
+      #};
+      #nixfmt = {
+      #command = lib.getExe pkgs.nixfmt;
+      #};
+      #taplo = {
+      #command = lib.getExe pkgs.taplo;
+      #};
+      #yamlfix = {
+      #command = lib.getExe pkgs.yamlfix;
+      #};
+      #docstrfmt = {
+      #command = lib.getExe doc-str-fmt;
+      #};
+      #};
     };
   };
   keymaps = [

@@ -1,4 +1,4 @@
-{
+_: {
   plugins.mini = {
     enable = true;
     mockDevIcons = true;
@@ -13,6 +13,15 @@
             width = "auto";
           };
         };
+        clues = [
+          { __raw = "require('mini.clue').gen_clues.square_brackets()"; }
+          { __raw = "require('mini.clue').gen_clues.builtin_completion()"; }
+          { __raw = "require('mini.clue').gen_clues.g()"; }
+          { __raw = "require('mini.clue').gen_clues.marks()"; }
+          { __raw = "require('mini.clue').gen_clues.registers()"; }
+          { __raw = "require('mini.clue').gen_clues.windows()"; }
+          { __raw = "require('mini.clue').gen_clues.z()"; }
+        ];
         triggers = [
           {
             mode = "n";
@@ -59,6 +68,7 @@
       comment = {
         options.ignore_blank_line = true;
       };
+      completion = { };
       cursorword = { };
       diff = { };
       extra = { };
@@ -88,6 +98,25 @@
           content_from_bottom = true;
         };
       };
+      snippets = {
+        snippets = [
+          { __raw = "require('mini.snippets').gen_loader.from_lang()"; }
+        ];
+        expand = {
+          select.__raw = ''
+            function(snippets, insert)
+              local select = _G.NixMiniSnippetsSelectOverride or MiniSnippets.default_select
+              select(snippets, insert)
+            end
+          '';
+        };
+        mappings = {
+          expand = "<CR>";
+          jump_next = "<tab>";
+          jump_prev = "<S-tab>";
+          stop = "<C-s>";
+        };
+      };
       starter = { }; # File launched with starter don't use clue correctly?
       statusline = { };
       surround = {
@@ -97,17 +126,24 @@
       tabline = { };
     };
 
-    # These could probably be done with __raw, but I think they are more readable this way.
     luaConfig.post = ''
-      local miniclue = require('mini.clue')
-      miniclue.setup({
-        clues = {
-          miniclue.gen_clues.windows(),
-          miniclue.gen_clues.z(),
-        },
-      })
-
       require("mini.indentscope").gen_animation.none()
+      local imap_expr = function(lhs, rhs)
+        vim.keymap.set('i', lhs, rhs, { expr = true })
+      end
+      imap_expr('<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+      imap_expr('<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
+
+      _G.cr_action = function()
+        -- If there is selected item in popup, accept it with <C-y>
+        if vim.fn.complete_info()['selected'] ~= -1 then return '\25' end
+        -- Fall back to plain `<CR>`. You might want to customize according
+        -- to other plugins. For example if 'mini.pairs' is set up, replace
+        -- next line with `return MiniPairs.cr()`
+        return '\r'
+      end
+
+      vim.keymap.set('i', '<CR>', 'v:lua.cr_action()', { expr = true })
     '';
   };
 

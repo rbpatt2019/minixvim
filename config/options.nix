@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   globalOpts = {
     autowrite = true;
@@ -40,11 +41,12 @@
     timeoutlen = 300;
     undodir = ".nvim-undodir";
     undofile = true;
+    winborder = "rounded";
   };
   globals.mapleader = " ";
   globals.maplocalleader = " ";
 
-  diagnostics = {
+  diagnostic.settings = {
     update_in_insert = true;
     severity_sort = true;
     float = {
