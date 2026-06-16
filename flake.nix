@@ -45,37 +45,6 @@
           {
             packages.default = nvim;
             checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-            devShells.default = pkgs.mkShell {
-              shellHook = ''
-                ${config.pre-commit.installationScript}
-                echo 1>&2 "Welcome to the development shell!"
-              '';
-            };
-            pre-commit = {
-              check.enable = false; # All non-trivial checks handled by treefmt
-              settings.hooks = {
-                check-added-large-files.enable = true;
-                check-executables-have-shebangs.enable = true;
-                check-shebang-scripts-are-executable.enable = true;
-                check-merge-conflicts.enable = true;
-                detect-private-keys.enable = true;
-                end-of-file-fixer.enable = true;
-                mixed-line-endings.enable = true;
-                trim-trailing-whitespace.enable = true;
-                treefmt = {
-                  enable = true;
-                  verbose = true;
-                  settings.formatters = [
-                    pkgs.actionlint
-                    pkgs.nixfmt-pkgs
-                    pkgs.deadnix
-                    pkgs.statix
-                    pkgs.rstfmt
-                    pkgs.yamlfmt
-                  ];
-                };
-              };
-            };
             treefmt = {
               programs = {
                 nixfmt.enable = true;
@@ -85,6 +54,22 @@
                 yamlfmt.enable = true;
               };
             };
+            pre-commit.settings.hooks = {
+              check-added-large-files.enable = true;
+              check-executables-have-shebangs.enable = true;
+              check-shebang-scripts-are-executable.enable = true;
+              check-merge-conflicts.enable = true;
+              detect-private-keys.enable = true;
+              end-of-file-fixer.enable = true;
+              mixed-line-endings.enable = true;
+              trim-trailing-whitespace.enable = true;
+              treefmt = {
+                enable = true;
+                verbose = true;
+              };
+              flake-checker.enable = true;
+            };
+            devShells.default = config.pre-commit.devShell;
           };
       }
     );
