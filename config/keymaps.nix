@@ -249,7 +249,7 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>wq";
+      key = "<leader>x";
       action = "<cmd>x<cr>";
       options = {
         desc = "Save and quit";

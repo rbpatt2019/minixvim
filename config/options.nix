@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+_:
 
 {
   globalOpts = {
@@ -44,7 +44,7 @@
     winborder = "rounded";
   };
   globals.mapleader = " ";
-  globals.maplocalleader = " ";
+  globals.maplocalleader = ";";
 
   diagnostic.settings = {
     update_in_insert = true;
@@ -67,22 +67,9 @@
     highlight_yank = { };
     indentscope = { };
     filetypes = { };
-    sys = { };
   };
 
   autoCmd = [
-    {
-      desc = "Change working directory to a git repository's root";
-      group = "sys";
-      event = [ "VimEnter" ];
-      pattern = "*";
-      command = "luafile ${pkgs.writeText "cd-git-root.lua" ''
-        local gitRoot = vim.fn.system("${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null")
-        if (gitRoot) ~= nil and gitRoot ~= "") then
-          vim.cmd("cd " .. gitRoot)
-        end
-      ''}";
-    }
     {
       desc = "Highlight text when yanked";
       group = "highlight_yank";
