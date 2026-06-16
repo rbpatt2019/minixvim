@@ -1,4 +1,5 @@
 {
+
   globals.mapleader = " ";
   globals.maplocalleader = ";";
 
@@ -237,7 +238,7 @@
     {
       mode = "n";
       key = "<leader>w";
-      action = "<cmd>w<cr>";
+      action = "<cmd>up<cr>";
       options = {
         desc = "Save File";
       };
@@ -252,10 +253,10 @@
     }
     {
       mode = "n";
-      key = "<leader>Q";
-      action = "<cmd>qa!<cr>";
+      key = "<leader>wq";
+      action = "<cmd>x<cr>";
       options = {
-        desc = "Force Quit";
+        desc = "Save and quit";
       };
     }
     {

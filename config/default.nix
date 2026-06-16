@@ -1,10 +1,5 @@
 _: {
   imports = [
-    ./settings.nix
-    ./keymaps.nix
-    ./auto_cmds.nix
-    ./filetypes.nix
-    ./colourscheme.nix
 
     # Core Functionality
     ./plugins/mini.nix
@@ -25,5 +20,10 @@ _: {
 
     # Git integration
     ./plugins/git/lazygit.nix
+
+    # Settings
+    ./options.nix
+    ./keymaps.nix
+    ./colourscheme.nix
   ];
 }
