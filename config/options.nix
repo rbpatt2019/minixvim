@@ -44,7 +44,7 @@ _:
     winborder = "rounded";
   };
   globals.mapleader = " ";
-  globals.maplocalleader = ";";
+  globals.maplocalleader = ",";
 
   diagnostic.settings = {
     update_in_insert = true;
