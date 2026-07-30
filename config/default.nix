@@ -19,6 +19,7 @@ _: {
 
     # Git integration
     ./plugins/git/lazygit.nix
+    ./plugins/git/gitgutter.nix
 
     # Settings
     ./lsp.nix
