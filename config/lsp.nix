@@ -1,30 +1,11 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
+  plugins.lspconfig.enable = true;
   lsp = {
     inlayHints.enable = true;
     servers = {
-      nixd = {
-        enable = true;
-        config =
-          let
-            flake = ''(builtins.getFlake "github:elythh/flake)""'';
-            flakeNixvim = ''(builtins.getFlake "github:elythh/nixvim)""'';
-          in
-          {
-            nixpkgs = {
-              expr = "import ${flake}.inputs.nixpkgs { }";
-            };
-            formatting = {
-              command = [ "${lib.getExe pkgs.nixfmt}" ];
-            };
-            options = {
-              nixos.expr = "${flake}.nixosConfigurations.grovetender.options";
-              nixvim.expr = "${flakeNixvim}.packages.${pkgs.system}.default.options";
-            };
-          };
-      };
-
-      # yaml
+      # stuctured langs
+      jsonls.enable = true;
       yamlls = {
         enable = true;
         config = {
@@ -37,39 +18,9 @@
           };
         };
       };
-
-      # lua
-      lua_ls = {
-        enable = true;
-        config.telemetry.enable = false;
-      };
-
-      # Spellcheck
-      harper_ls = {
-        enable = true;
-        config.settings = {
-          "harper-ls" = {
-            linters = {
-              boring_words = true;
-              linking_verbs = true;
-              # Rarely useful with coding
-              sentence_capitalization = false;
-              spell_check = false;
-            };
-            codeActions = {
-              forceStable = true;
-            };
-            dialect = "British";
-          };
-        };
-      };
-
-      taplo.enable = true; # toml
-      jsonls.enable = true; # json
-      dockerls.enable = true; # Docker
-      bashls.enable = true; # Bash
-      markdown_oxide.enable = true; # Markdown
-      ruff.enable = true; # python
+      # python
+      ruff.enable = true;
+      ty.enable = true;
     };
     keymaps = [
       {
