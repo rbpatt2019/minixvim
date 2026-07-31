@@ -5,6 +5,7 @@
       enable = true;
       settings = {
         completion.documentation.auto_show = false;
+        completion.list.selection.preselect = false;
         signature.enabled = true;
         keymap.preset = "super-tab";
         sources = {

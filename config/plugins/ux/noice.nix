@@ -9,6 +9,7 @@
       };
       cmdline.enabled = true;
       lsp = {
+        signature.auto_open.enabled = false;
         override = {
           "vim.lsp.util.convert_input_to_markdown_lines" = true;
           "vim.lsp.util.stylize_markdown" = true;
@@ -18,10 +19,10 @@
       messages = {
         enabled = true;
         view = "mini";
-        view_error = "notify";
+        view_error = "mini";
         view_history = "mini";
         view_search = "mini";
-        view_warn = "notify";
+        view_warn = "mini";
       };
       notify = {
         enabled = true;
