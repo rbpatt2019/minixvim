@@ -29,6 +29,7 @@
         {
           config,
           system,
+          pkgs,
           ...
         }:
         let
@@ -41,6 +42,8 @@
           packages.default = configuration.config.build.package;
           checks.default = configuration.config.build.test;
           treefmt = {
+            flakeFormatter = true;
+            flakeCheck = false; # handled by pre-commit
             programs = {
               nixfmt.enable = true;
               deadnix.enable = true;
@@ -49,20 +52,30 @@
               yamlfmt.enable = true;
             };
           };
-          pre-commit.settings.hooks = {
-            check-added-large-files.enable = true;
-            check-executables-have-shebangs.enable = true;
-            check-shebang-scripts-are-executable.enable = true;
-            check-merge-conflicts.enable = true;
-            detect-private-keys.enable = true;
-            end-of-file-fixer.enable = true;
-            mixed-line-endings.enable = true;
-            trim-trailing-whitespace.enable = true;
-            treefmt = {
-              enable = true;
-              verbose = true;
+          pre-commit.settings = {
+            package = pkgs.prek;
+            hooks = {
+              check-added-large-files.enable = true;
+              check-executables-have-shebangs.enable = true;
+              check-shebang-scripts-are-executable.enable = true;
+              check-merge-conflicts.enable = true;
+              detect-private-keys.enable = true;
+              end-of-file-fixer.enable = true;
+              mixed-line-endings.enable = true;
+              trim-trailing-whitespace.enable = true;
+              treefmt = {
+                enable = true;
+                verbose = true;
+              };
+              flake-checker.enable = true;
+              checks = {
+                enable = true;
+                name = "nix flake check";
+                entry = "nix flake check --no-warn-dirty .";
+                pass_filenames = false;
+                stages = [ "pre-push" ];
+              };
             };
-            flake-checker.enable = true;
           };
           devShells.default = config.pre-commit.devShell;
         };
