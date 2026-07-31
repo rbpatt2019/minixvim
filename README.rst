@@ -21,20 +21,13 @@ plugin. These are documented below:
    prompts and allows for customisation of notifications (ie errors
    using notify, info using mini).
 
-#. cmp_ is used completions, as mini's does not yet support snippets. I
-   will likely switch once this is in.
+#. blink-cmp_ is used completions, as I found it much easier to get
+   working
 
-**************
- Known Issues
-**************
+#. toggleterm_ is used until Mini.terminals and Mini.repl are
+   implemented
 
-#. Files launched through Mini.Pick, Mini.Files, or Mini.Starter don't
-   use Mini.Clue
-#. Snippets not picked up for cmp.
-#. Color is rubbish on python files
-
-I'm pretty sure this is related to NixVim, as I can't replicate these in
-a plain Lua setup.
+#. gitgutter_ is used until Mini.statuscolumn is implemented
 
 **************
  Installation
@@ -64,7 +57,9 @@ Then, install the package. For home-manager_, this would be:
 
 Please see our guide on :ref:`contributing`.
 
-.. _cmp: https://github.com/hrsh7th/nvim-cmp
+.. _blink-cmp: https://cmp.saghen.dev/
+
+.. _gitgutter: https://github.com/airblade/vim-gitgutter/
 
 .. _home-manager: https://github.com/nix-community/home-manager
 
@@ -75,3 +70,5 @@ Please see our guide on :ref:`contributing`.
 .. _noice: https://github.com/folke/noice.nvim
 
 .. _nvim: https://neovim.io/
+
+.. _toggleterm: https://github.com/akinsho/toggleterm.nvim/

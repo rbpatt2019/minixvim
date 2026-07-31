@@ -1,4 +1,4 @@
-{
+_: {
   plugins.mini = {
     enable = true;
     mockDevIcons = true;
@@ -13,6 +13,15 @@
             width = "auto";
           };
         };
+        clues = [
+          { __raw = "require('mini.clue').gen_clues.square_brackets()"; }
+          { __raw = "require('mini.clue').gen_clues.builtin_completion()"; }
+          { __raw = "require('mini.clue').gen_clues.g()"; }
+          { __raw = "require('mini.clue').gen_clues.marks()"; }
+          { __raw = "require('mini.clue').gen_clues.registers()"; }
+          { __raw = "require('mini.clue').gen_clues.windows()"; }
+          { __raw = "require('mini.clue').gen_clues.z()"; }
+        ];
         triggers = [
           {
             mode = "n";
@@ -97,16 +106,7 @@
       tabline = { };
     };
 
-    # These could probably be done with __raw, but I think they are more readable this way.
     luaConfig.post = ''
-      local miniclue = require('mini.clue')
-      miniclue.setup({
-        clues = {
-          miniclue.gen_clues.windows(),
-          miniclue.gen_clues.z(),
-        },
-      })
-
       require("mini.indentscope").gen_animation.none()
     '';
   };

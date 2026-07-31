@@ -1,7 +1,4 @@
-{
-  globals.mapleader = " ";
-  globals.maplocalleader = ";";
-
+_: {
   keymaps = [
     # Better escape
     {
@@ -237,7 +234,7 @@
     {
       mode = "n";
       key = "<leader>w";
-      action = "<cmd>w<cr>";
+      action = "<cmd>up<cr>";
       options = {
         desc = "Save File";
       };
@@ -252,10 +249,10 @@
     }
     {
       mode = "n";
-      key = "<leader>Q";
-      action = "<cmd>qa!<cr>";
+      key = "<leader>x";
+      action = "<cmd>x<cr>";
       options = {
-        desc = "Force Quit";
+        desc = "Save and quit";
       };
     }
     {
