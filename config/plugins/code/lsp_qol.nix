@@ -21,7 +21,8 @@
       };
       outline = {
         enable = true;
-        layout = "float";
+        auto_preview = false;
+        close_after_jump = true;
       };
       rename.enable = true;
     };

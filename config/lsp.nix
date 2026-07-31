@@ -117,7 +117,7 @@ _: {
         };
       }
       {
-        action = "<CMD>LspStop<Enter>";
+        action = ":LspStop<Enter>";
         key = "<leader>lx";
         options = {
           silent = true;
@@ -125,7 +125,7 @@ _: {
         };
       }
       {
-        action = "<CMD>LspStart<Enter>";
+        action = ":LspStart<Enter>";
         key = "<leader>ls";
         options = {
           silent = true;
@@ -133,7 +133,7 @@ _: {
         };
       }
       {
-        action = "<CMD>LspRestart<Enter>";
+        action = ":LspRestart<Enter>";
         key = "<leader>lr";
         options = {
           silent = true;
