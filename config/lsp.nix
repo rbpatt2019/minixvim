@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   plugins.lspconfig.enable = true;
   plugins.lsp-lines.enable = false;
   plugins.lsp-progress.enable = true;
@@ -7,7 +6,7 @@
   lsp = {
     inlayHints.enable = false;
     servers = {
-      # stuctured langs
+      # structured langs
       jsonls.enable = true;
       taplo.enable = true;
       yamlls = {
@@ -29,7 +28,7 @@
       ty.enable = true;
       # bash
       bashls.enable = true;
-      # docker
+      # Docker
       dockerls.enable = true;
       # text
       marksman.enable = true;
@@ -54,51 +53,67 @@
     };
     keymaps = [
       {
-        key = "<localleader>d";
-        lspBufAction = "definition";
+        key = "<localleader>a";
+        action = "<CMD>Lspsaga code_action<Enter>";
         options = {
           silent = true;
-          desc = "Go to definition";
+          desc = "Code Actions";
+        };
+      }
+      {
+        key = "<localleader>d";
+        action = "<CMD>Lspsaga peek_definition<Enter>";
+        options = {
+          silent = true;
+          desc = "Peek definition";
         };
       }
       {
         key = "<localleader>t";
-        lspBufAction = "type_definition";
+        action = "<CMD>Lspsaga peek_type_definition<Enter>";
         options = {
           silent = true;
-          desc = "Go to type definition";
-        };
-      }
-      {
-        key = "<localleader>i";
-        lspBufAction = "implementation";
-        options = {
-          silent = true;
-          desc = "Go to type implementation";
+          desc = "Peek type definition";
         };
       }
       {
         key = "<localleader>h";
-        lspBufAction = "hover";
+        action = "<CMD>Lspsaga hover_doc<Enter>";
         options = {
           silent = true;
           desc = "Hover";
         };
       }
       {
-        action = lib.nixvim.mkRaw "function() vim.diagnostic.jump({ count=-1, float=true }) end";
-        key = "[d";
+        key = "<localleader>e";
+        action = "<CMD>Lspsaga outline<Enter>";
         options = {
           silent = true;
-          desc = "Prev. Diagnostic";
+          desc = "Outline";
         };
       }
       {
-        action = lib.nixvim.mkRaw "function() vim.diagnostic.jump({ count=1, float=true }) end";
+        key = "<localleader>r";
+        action = "<CMD>Lspsaga rename<Enter>";
+        options = {
+          silent = true;
+          desc = "Rename";
+        };
+      }
+      {
+        action = "<CMD>Lspsaga diagnostic_jump_next<Enter>";
         key = "]d";
         options = {
           silent = true;
           desc = "Next Diagnostic";
+        };
+      }
+      {
+        action = "<CMD>Lspsaga diagnostic_jump_prev<Enter>";
+        key = "[d";
+        options = {
+          silent = true;
+          desc = "Prev. Diagnostic";
         };
       }
       {
