@@ -97,7 +97,7 @@ _: {
           content_from_bottom = true;
         };
       };
-      starter = { }; # File launched with starter don't use clue correctly?
+      starter = { };
       statusline = { };
       surround = {
         highlight_duration = 1000;
@@ -210,7 +210,7 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>gd";
+      key = "<leader>gD";
       action = "<cmd>lua MiniDiff.toggle_overlay()<CR>";
       options = {
         desc = "Diff";

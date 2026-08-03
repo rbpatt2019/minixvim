@@ -9,7 +9,7 @@ _: {
     ./plugins/code/cmp.nix
     ./plugins/code/schemastore.nix
     ./plugins/code/treesitter.nix
-    ./plugins/code/lspkind.nix
+    ./plugins/code/lsp_qol.nix
 
     # UX improvements
     ./plugins/ux/noice.nix

@@ -1,7 +1,9 @@
 _:
 
 {
-  globalOpts = {
+  viAlias = true;
+  vimAlias = true;
+  opts = {
     autowrite = true;
     breakindent = true;
     clipboard = "unnamedplus";
@@ -9,7 +11,7 @@ _:
     confirm = true;
     cursorline = true;
     expandtab = true;
-    foldenable = true;
+    foldenable = false;
     foldlevel = 99;
     foldmethod = "syntax";
     grepprg = "rg --vimgrep";
@@ -27,7 +29,7 @@ _:
     showmode = false;
     showtabline = 2;
     sidescrolloff = 8;
-    signcolumn = "yes";
+    signcolumn = "yes:1";
     smarttab = true;
     smartcase = true;
     smartindent = true;
@@ -47,7 +49,7 @@ _:
   globals.maplocalleader = ",";
 
   diagnostic.settings = {
-    update_in_insert = true;
+    update_in_insert = false;
     severity_sort = true;
     float = {
       border = "rounded";
@@ -55,9 +57,7 @@ _:
     jump = {
       severity.__raw = "vim.diagnostic.severity.WARN";
     };
-    virtual_lines = {
-      current_line = true;
-    };
+    virtual_lines = false;
     virtual_text = false;
   };
 
@@ -105,13 +105,6 @@ _:
       };
     }
   ];
-  #autoCmd = [
-  #  {
-  #    event = [ "BufEnter" "BufWinEnter" ];
-  #    pattern = [ "*.md" "*.mdx" ];
-  #    command = "MarkdownPreviewToggle";
-  #  }
-  #];
 
   highlight = {
     Comment.fg = "#ff00ff";
