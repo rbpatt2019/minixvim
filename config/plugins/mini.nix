@@ -210,7 +210,7 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>gd";
+      key = "<leader>gD";
       action = "<cmd>lua MiniDiff.toggle_overlay()<CR>";
       options = {
         desc = "Diff";
