@@ -17,9 +17,9 @@
     {
       mode = "n";
       key = "<leader>gd";
-      action = "<cmd><Plug>(GitGutterPreviewHunk)<cr>";
+      action = "<Plug>(GitGutterPreviewHunk)";
       options = {
-        desc = "Fold unchanged";
+        desc = "Git diff hunk";
       };
     }
   ];
