@@ -216,10 +216,18 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>bx";
+      key = "<leader>bc";
       action = "<cmd>close<cr>";
       options = {
         desc = "Close Split";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>bo";
+      action = "<cmd>only<cr>";
+      options = {
+        desc = "Only Split";
       };
     }
     # Files
