@@ -146,7 +146,7 @@ _: {
     }
     {
       mode = "n";
-      key = "<leader>bl";
+      key = "<leader>fb";
       action = "<cmd>Pick buffers<CR>";
       options = {
         desc = "Find buffer";
