@@ -4,6 +4,7 @@ _: {
   plugins.lsp-progress.enable = true;
   plugins.lsp-format.enable = true;
   lsp = {
+    codelens.enable = true;
     inlayHints.enable = false;
     servers = {
       # structured langs
@@ -34,19 +35,25 @@ _: {
       marksman.enable = true;
       harper_ls = {
         enable = true;
-        config.settings = {
-          "harper-ls" = {
-            linters = {
-              boring_words = true;
-              linking_verbs = true;
-              # Rarely useful with coding
-              sentence_capitalization = false;
-              spell_check = false;
+        config = {
+          filetypes = [
+            "markdown"
+            "rst"
+          ];
+          settings = {
+            "harper-ls" = {
+              linters = {
+                boring_words = true;
+                linking_verbs = true;
+                # Rarely useful with coding
+                sentence_capitalization = false;
+                spell_check = false;
+              };
+              codeActions = {
+                forceStable = true;
+              };
+              dialect = "British";
             };
-            codeActions = {
-              forceStable = true;
-            };
-            dialect = "British";
           };
         };
       };
