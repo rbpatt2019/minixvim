@@ -179,7 +179,7 @@ _: {
     {
       mode = "n";
       key = "<localleader>fd";
-      action = "<cmd>Pick diagnostic<CR>";
+      action = "<cmd>Pick diagnostic scope='current'<CR>";
       options = {
         desc = "Find diagnostic";
       };
@@ -189,15 +189,7 @@ _: {
       key = "<localleader>fs";
       action = "<cmd>Pick lsp scope='document_symbol'<CR>";
       options = {
-        desc = "Find symbol (doc)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<localleader>fS";
-      action = "<cmd>Pick lsp scope='workspace_symbol'<CR>";
-      options = {
-        desc = "Find symbol (space)";
+        desc = "Find symbol";
       };
     }
     {
