@@ -75,6 +75,13 @@
                 pass_filenames = false;
                 stages = [ "pre-push" ];
               };
+              update = {
+                enable = true;
+                name = "nix flake update";
+                entry = "nix flake update";
+                pass_filenames = false;
+                stages = [ "pre-push" ];
+              };
             };
           };
           devShells.default = config.pre-commit.devShell;

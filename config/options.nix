@@ -1,4 +1,4 @@
-_:
+{ lib, ... }:
 
 {
   viAlias = true;
@@ -11,9 +11,10 @@ _:
     confirm = true;
     cursorline = true;
     expandtab = true;
-    foldenable = false;
+    foldenable = true;
     foldlevel = 99;
     foldmethod = "syntax";
+    foldtext = lib.mkForce "getline(v:foldstart)";
     grepprg = "rg --vimgrep";
     ignorecase = true;
     laststatus = 3;
